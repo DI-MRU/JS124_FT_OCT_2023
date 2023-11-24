@@ -1,0 +1,55 @@
+<html>
+  <body>
+    <!-- Exercise 1 -->
+    <div id="Users">Users:</div>
+    <ul>
+      <li>John</li>
+      <li>Peter</li>
+    </ul>
+    <!-- Exercise 2 -->
+    <p id="text">DOM Attributes! Yeahhh !!</p>
+
+    <!-- Exercise 3 -->
+    <p>
+      <a
+        id="dI"
+        type="text/html"
+        hreflang="en-us"
+        rel="nofollow"
+        target="_self"
+        href="https://developers.institute/"
+        >Developers Institute</a
+      >
+    </p>
+  </body>
+  <script src="./script.js"></script>
+  <script>
+    //    Exercise 3
+    // get the href attribute of the link
+    var Di = document.getElementById("dI");
+    console.log(Di.getAttribute("href"));
+
+    // Exercise 1
+    var DivNode = document.body.firstElementChild;
+    //   var DivNode = document.body.children[0]
+    console.log(DivNode);
+    var UlNode = document.body.firstElementChild.nextElementSibling;
+    //   var UlNode = document.body.children[1]
+
+    console.log(UlNode);
+
+    var Peter = document.body.children[1].children[1];
+    var Peter = document.body.firstElementChild.nextElementSibling.children[1];
+
+    console.log(Peter);
+
+    var User = document.getElementById("Users");
+
+    // Exercise 2
+    // change the font size, font Family, Color of the paragraph
+    var text = document.getElementById("text");
+    text.style.fontFamily = "Arial";
+    text.style.fontSize = "10px";
+    text.style.color = "red";
+  </script>
+</html>

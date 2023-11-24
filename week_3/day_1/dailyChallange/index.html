@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Create a solar system</title>
+    <style>
+      body {
+        background-color: black;
+        padding: 10px;
+      }
+      .planet {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        border: 2px solid white;
+      }
+      .moon {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgb(237, 237, 237);
+        border: 5px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="listPlanets"></section>
+
+    <script>
+      const planetArray = [
+        { planet: "Mercury", moon: 0, color: "red" },
+        { planet: "Venus", moon: 0, color: "blue" },
+        { planet: "Earth", moon: 1, color: "yellow" },
+        { planet: "Mars", moon: 2, color: "green" },
+        { planet: "Jupiter", moon: 0, color: "orange" },
+        { planet: "Saturn", moon: 82, color: "brown" },
+        { planet: "Jupiter", moon: 79, color: "lightblue" },
+        { planet: "Uranus", moon: 27, color: "limegreen" },
+        { planet: "Neptune", moon: 14, color: "white" },
+      ];
+      // colors for each planet
+      for (planet of planetArray) {
+        let newPlanet = document.createElement("div");
+        {
+          newPlanet.setAttribute("class", "planet");
+          newPlanet.style.backgroundColor = [planet.color];
+          newPlanet.textContent = planet.planet;
+        }
+        for (let i = 0; i < planet.moon; i++) {
+          const moonDiv = document.createElement("div");
+          moonDiv.setAttribute("class", "moon");
+          moonDiv.style.left = i * 10 + "px";
+          newPlanet.appendChild(moonDiv);
+        }
+        const section = document.querySelector("section");
+        {
+          section.appendChild(newPlanet);
+        }
+      }
+    </script>
+  </body>
+</html>
