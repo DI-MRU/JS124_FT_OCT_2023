@@ -1,0 +1,77 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-color: burlywood;
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+  background-color: grey;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: auto;
+  /* height: 50rem;
+  width: 50rem; */
+}
+
+.item {
+  height: 10rem;
+  width: 10rem;
+  /* height: 100%;
+  width: 100%; */
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  font-size: 5rem;
+  cursor: default;
+  user-select: none;
+}
+
+.item:hover {
+  background-color: white;
+  border: 1px solid magenta;
+  /* transition-delay: 3000ms; */
+  transition-duration: 300ms;
+}
+
+.item:active {
+  background-color: bisque;
+  border: 1px solid black;
+  scale: 2;
+  rotate: 90deg;
+  animation: jigile 0.2s infinite;
+}
+
+@keyframes jigile {
+  from {
+    translate: 0px 0px;
+  }
+  25% {
+    translate: 10px 0px;
+  }
+  50% {
+    translate: 0px 0px;
+  }
+  75% {
+    translate: 10px 0px;
+  }
+  to {
+    translate: 0px 0px;
+  }
+}
+
+/* 
+pt - point
+px - pixel
+em - relative to parent font-size
+rem - relative to root/page font-size
+% - percentage of available space
+vh/vw - relative to viewport height/width
+*/
