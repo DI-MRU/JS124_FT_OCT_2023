@@ -1,0 +1,9 @@
+p {
+  /* top, right, bottom, left */
+  margin: 10px 20px 30px 40px;
+  /* top, right, bottom, left */
+  padding: 10px 20px 30px 40px;
+}
+.box {
+  background-color: red;
+}
