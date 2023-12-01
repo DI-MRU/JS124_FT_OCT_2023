@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="card mb-3">
+        <div class="card-body">
+            <form>
+                <h1>
+                    Currency Converter
+                </h1>
+                <h2>From:</h2>
+                <select id="select-from" class="form-select" aria-label="Default select example">
+                </select>
+                <button id="switch-btn" class="btn btn-secondary" type="button">Switch</button>
+                <h2>To:</h2>
+                <select id="select-to" class="form-select" aria-label="Default select example">
+                </select>
+                <h2>Amount:</h2>
+                <input id="currency-amount" type="number">
+                <button id="submit-btn" class="btn btn-primary" type="submit">Convert</button>
+                <input id="currency-converted" type="text" readonly>
+            </form>
+        </div>
+    </div>
+    <script src="./commetuveux.js"></script>
+</body>
+
+</html>
