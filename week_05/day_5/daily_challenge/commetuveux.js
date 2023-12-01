@@ -1,20 +1,22 @@
+// Please don't forget to sign up and use your own api key
+const API_KEY = "";
+const API_URL = "https://v6.exchangerate-api.com/v6/";
+
 async function fetchCurrencies() {
   // Fetching the available/supported currencies
-  return await fetch(
-    "https://v6.exchangerate-api.com/v6/a6a94bb366742d9e679ecf8d/codes"
-  ).then(async (resp) => {
+  return await fetch(`${API_URL}${API_KEY}/codes`).then(async (resp) => {
     const result = await resp.json();
     return result.supported_codes;
   });
 }
 
 async function convertMonies(from, to, amount) {
-  return await fetch(
-    `https://v6.exchangerate-api.com/v6/a6a94bb366742d9e679ecf8d/pair/${from}/${to}/${amount}`
-  ).then(async (resp) => {
-    const result = await resp.json();
-    return result.conversion_result;
-  });
+  return await fetch(`${API_URL}${API_KEY}/pair/${from}/${to}/${amount}`).then(
+    async (resp) => {
+      const result = await resp.json();
+      return result.conversion_result;
+    }
+  );
 }
 
 // Self invoking arrow function <-- Advanced advanced JS
