@@ -1,0 +1,16 @@
+{
+  "name": "day_1",
+  "version": "1.0.0",
+  "description": "Week 7 Day 1 Lecture",
+  "main": "lecture.js",
+  "scripts": {
+    "start": "node ./lecture.js",
+    "dev": "nodemon ./lecture.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vincent Leung",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
