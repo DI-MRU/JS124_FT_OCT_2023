@@ -3,7 +3,7 @@
 ### Team members
 
 - Himanish
-- Naizanah
+- Nazianah
 
 ## Group 2
 
