@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      #todos {
+        list-style: none;
+        padding: 0;
+      }
+      .todo {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: #888;
+      }
+    </style>
+</head>
+<body>
+    <body>
+
+        <h1>Todo App</h1>
+      
+        <form id="todoForm">
+          <input type="text" id="task" placeholder="Enter task" required>
+          <button type="submit">Add Todo</button>
+        </form>
+      
+        <ul id="todos"></ul>
+      
+        <script>
+          const todoForm = document.getElementById('todoForm');
+          const taskInput = document.getElementById('task');
+          const todosList = document.getElementById('todos');
+      
+          // Function to fetch and display todos
+          const fetchTodos = async () => {
+            const response = await fetch('/todos');
+            const todos = await response.json();
+      
+            todosList.innerHTML = '';
+      
+            todos.forEach(todo => {
+              const li = document.createElement('li');
+              li.className = `todo ${todo.completed ? 'completed' : ''}`;
+              li.innerHTML = `
+                <span>${todo.task}</span>
+                <button onclick="toggleCompleted(${todo.id})">Toggle</button>
+                <button onclick="deleteTodo(${todo.id})">Delete</button>
+              `;
+              todosList.appendChild(li);
+            });
+          };
+      
+          // Function to add a new todo
+          const addTodo = async (event) => {
+  event.preventDefault();
+
+  const task = taskInput.value;
+  if (!task) return;
+
+  // Send a POST request to create a new todo
+  await fetch('/todos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ task, completed: true }),
+  });
+
+  taskInput.value = '';
+  fetchTodos(); // Refresh the todo list
+};
+      
+          // Function to toggle completed status
+          const toggleCompleted = async (id) => {
+  // Toggle the completed status directly
+  await fetch(`/todos/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      completed: true, // You can set this value as needed
+    }),
+  });
+
+  fetchTodos(); // Refresh the todo list
+};
+      
+          // Function to delete a todo
+          const deleteTodo = async (id) => {
+            await fetch(`/todos/${id}`, { method: 'DELETE' });
+            fetchTodos();
+          };
+      
+          // Event listeners
+          todoForm.addEventListener('submit', addTodo);
+      
+          // Initial fetch
+          fetchTodos();
+        </script>
+      
+      </body>
+</body>
+</html>
