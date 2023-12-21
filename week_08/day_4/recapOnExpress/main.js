@@ -34,9 +34,9 @@ app.post("/", async (req, res) => {
   const { title } = req.body;
   //hash makes it more secure use it for !passwords!
   //   const hashTitle = await bcrypt.hash(title, 10);
-  const { data, error } = await supabase.from("pokemon").insert([{ title }]);
+  const { error } = await supabase.from("pokemon").insert([{ title }]);
   if (error) return res.status(401).json({ error });
-  else return  res.status(200).json({ message: "Data inserted successfully", title });
+  else return res.send({ message: "Pokemon added successfully" });
 });
 
 app.listen(3000, () => {
